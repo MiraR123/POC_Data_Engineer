@@ -1,7 +1,6 @@
-# POC_Data_Engineer
-
 
 # Data Engineer POC - ETL Workflow
+### Mira Radhakrishnan
 
 ## Overview
 

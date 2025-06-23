@@ -3,15 +3,7 @@
 ### Mira Radhakrishnan
 
 ## Overview
-
-This project demonstrates an end-to-end ETL workflow where Terraform is used to provision AWS infrastructure including:
-- An S3 bucket for source data and output results
-- Glue database and tables using crawlers
-- IAM roles for permissions
-
-A Glue Python job is defined to read source CSV data via Athena, calculate lag time between user events, and write the results back to S3 in CSV format.
-
----
+This project demonstrates an end-to-end ETL workflow where Terraform is used to provision AWS infrastructure including an S3 bucket for source data and output results, Glue database and tables using crawlers, and IAM roles. A Glue Python job is defined to read source CSV data via Athena, calculate lag time between user events, and write the results back to S3 in CSV format.
 
 ## How It Works
 

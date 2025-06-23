@@ -14,11 +14,11 @@ The process begins when a CSV file containing user event data (e.g., login, clic
 A Glue crawler, configured and scheduled within a Glue Workflow, scans the uploaded data in the source bucket. It creates or updates the metadata table in the Glue Data Catalog, allowing Athena to query the data in a structured format.
 # 3.	Athena Query-Based Glue Job
 The Glue ETL job is implemented in Python using PySpark and AWS SDK (boto3) within the Glue environment. Key highlights of the script include:
-#Athena Integration: 
+# Athena Integration: 
 The script triggers an Athena query to read the source CSV data from the Glue catalog table, waiting for query completion before proceeding.
 # Data Cleaning & Preprocessing: 
 It selects required columns (user_id, event_time), trims string fields, converts timestamps to proper format, removes nulls and duplicates to ensure clean input data.
-#Lag Time Calculation: 
+# Lag Time Calculation: 
 Uses PySpark window functions to calculate the time lag in minutes between consecutive user events (lag() over user_id partition ordered by event time).
 # Output Writing: 
 The transformed data with lag time is written back to the specified target S3 path as a single CSV file with headers.
@@ -65,15 +65,19 @@ o	Three Triggers ensure smooth execution:
 # •	IAM Roles & Policies:
 o	Glue-specific IAM roles are created with fine-grained permissions to access S3 buckets, Glue catalog, Athena query execution, and logging.
 
-# Deployment Steps
+### Deployment Steps
+
 Follow the steps below to deploy and run the ETL workflow from your local Linux machine:
-Configure AWS CLI - aws configure
-Initialize Terraform - terraform init
-Validate Terraform - terraform validate
-Verify the plan - terraform plan
-Apply the plan - terraform apply
-Trigger the Glue Workflow Manually in case of testing it - 
-aws glue start-workflow-run --name your-glue-workflow-name
+
+- Configure AWS CLI: `aws configure`
+- Initialize Terraform: `terraform init`
+- Validate Terraform: `terraform validate`
+- Verify the plan: `terraform plan`
+- Apply the plan: `terraform apply`
+- Trigger the Glue Workflow manually:
+  ```bash
+  aws glue start-workflow-run --glue-workflow-name
+
 
 # Execution Results
 For visual reference, detailed screenshots of the ETL workflow execution at each stage are provided in the etl_screenshots.pdf file included with this project.

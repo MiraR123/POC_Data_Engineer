@@ -1,0 +1,7 @@
+user_id,event_type,event_time
+1,login,1/1/2023 9:00
+1,click,1/1/2023 9:05
+1,logout,1/1/2023 9:10
+2,login,1/1/2023 10:00
+2,click,1/1/2023 10:05
+2,click,1/1/2023 10:10
